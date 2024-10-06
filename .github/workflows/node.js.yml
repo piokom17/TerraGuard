@@ -19,18 +19,18 @@ jobs:
           node-version: '16'  # lub wersja, której używasz
 
       - name: Install dependencies
-        working-directory: ./webapp
+        working-directory: ./terraguard-web
         run: npm install
 
       - name: Build Angular app
-        working-directory: ./webapp
+        working-directory: ./terraguard-web
         run: npm run build -- --prod
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./webapp/dist/webapp  # Upewnij się, że ścieżka jest poprawna
+          publish_dir: ./terraguard-web/dist/webapp  # Upewnij się, że ścieżka jest poprawna
           # opcjonalnie, jeśli chcesz użyć folderu 'docs' na GitHub Pages:
-          # publish_dir: ./webapp/dist/webapp
+          # publish_dir: ./terraguard-web/dist/webapp
           # publish_branch: gh-pages
