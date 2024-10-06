@@ -1,0 +1,40 @@
+name: Deploy Angular App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # lub inna gałąź, na której chcesz uruchamiać deployment
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'v20.18.0'  # lub wersja, której używasz
+
+      - name: Install dependencies
+        working-directory: ./terraguard-web
+        run: npm install
+
+      - name: Install ng
+        working-directory: ./terraguard-web
+        run: npm i -g @angular/cli
+
+      - name: Build Angular app
+        working-directory: ./terraguard-web
+        run: ng build --configuration production
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./terraguard-web/dist/webapp  # Upewnij się, że ścieżka jest poprawna
+          # opcjonalnie, jeśli chcesz użyć folderu 'docs' na GitHub Pages:
+          # publish_dir: ./terraguard-web/dist/webapp
+          # publish_branch: gh-pages
