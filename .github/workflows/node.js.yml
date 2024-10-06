@@ -22,6 +22,10 @@ jobs:
         working-directory: ./terraguard-web
         run: npm install
 
+      - name: Install ng
+        working-directory: ./terraguard-web
+        run: npm i -g @angular/cli
+
       - name: Build Angular app
         working-directory: ./terraguard-web
         run: ng build --configuration production
