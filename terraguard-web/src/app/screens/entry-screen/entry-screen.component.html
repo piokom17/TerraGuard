@@ -1,0 +1,30 @@
+<header class="flex-center gap-1">
+  <app-logo></app-logo>
+  <q>
+    <span class="line">The journey of a thousand miles begins with one brave step</span>
+    <span class="line">let your step be the compass for others</span>
+  </q>
+</header>
+<main>
+  <div class="card">
+    <h3>Pick start location</h3>
+    <ul class="menu">
+      @for (place of places; track place) {
+        <li tabindex="0" class="flex-between"><span>{{ place }}</span><mat-icon>location_on</mat-icon></li>
+      }
+    </ul>
+  </div>
+  <div class="play-button-container">
+    <button (click)="startGame()" class="play-button primary">Play</button>
+  </div>
+  <div class="card">
+    <h3>Who you want to rescue?</h3>
+    <div class="animals-grid">
+      @for (animal of animals; track animal) {
+        <div class="animal-cell">
+          <img src="{{animal.src}}" alt="{{animal.name}}">
+        </div>
+      }
+    </div>
+  </div>
+</main>

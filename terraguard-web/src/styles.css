@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+:root {
+  --primary: #76ABAE;
+  --secondary: #4D5259;
+}
+
+html, body {
+  background: #31363F;
+  color: white;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 1rem;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  letter-spacing: .05rem;
+}
+
+h1, h2, h3 {
+  letter-spacing: .1rem;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-05 {
+  gap: .5rem;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-left {
+  display: flex;
+}
+
+.flex-half {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-half > * {
+  flex: 1 1 0;
+}
+
+.flex-auto {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-auto > * {
+  flex: 1 1 auto;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+header > q {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+span.line {
+  display: inline-block;
+}
+
+.card {
+  background-color: var(--secondary);
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
+.card > ul.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.card > ul.menu > li, .card h3, .outlined, .dialog > h3, button {
+  padding: .5rem;
+  border: 1px solid var(--primary);
+  border-radius: 1rem;
+  font-size: medium;
+}
+
+button {
+  font-size: small;
+  font-weight: bold;
+  padding: .5rem 1rem;
+}
+
+.card h3, .dialog > h3 {
+  background: var(--primary);
+  margin: 0 0 .5rem 0;
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+button:not(:disabled), .menu li {
+  cursor: pointer;
+}
+
+meter {
+  -webkit-appearance: none;
+}
+
+meter::-webkit-meter-bar {
+  background: #EEEEEECC;
+}
+
+meter::-webkit-meter-optimum-value {
+  background: #EEEEEECC;
+}
+
+main {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
+
+.relative {
+  position: relative;
+}
+
+p {
+  margin-top: 0;
+}

@@ -1,0 +1,57 @@
+<div class="game-screen">
+  <aside class="side-panel flex-column gap-1">
+    <app-logo></app-logo>
+    <div class="card">
+      <h3>Statistics:</h3>
+      <div class="stats flex-half gap-1">
+        <div class="outlined flex-auto">
+          <label>Points</label>
+          <output class="outlined">{{ points }}</output>
+        </div>
+        <div class="outlined flex-auto">
+          <label>Level</label>
+          <output class="outlined">{{ level }}</output>
+        </div>
+      </div>
+    </div>
+    <div class="card grid-32 gap-1">
+      <div class="flex-column">
+        <h3>Save the panda</h3>
+        <div class="outlined p-0">
+          <app-meter [value]="progress" [max]="100"></app-meter>
+        </div>
+      </div>
+      <div class="saved-animal">
+        <img src="save-the-panda.png" alt="Panda" class="saved-animal">
+      </div>
+    </div>
+    <div class="card">
+      <h3>Resources:</h3>
+      <div class="resource-list flex-column gap-05">
+        @for (resource of resources; track resource) {
+          <div class="outlined flex-center resource-item">
+            <label>{{ resource.name }}</label>
+            <app-meter [value]="resource.level" [max]="100"></app-meter>
+          </div>
+        }
+      </div>
+    </div>
+  </aside>
+  <main>
+    <div id="scene" #scene></div>
+    @if (dialog) {
+    <app-dialog title="Save the panda!">
+      <p>Oh no!<br>Pandas are nearing extinction as their habitats shrink. Join the challenge to protect them by
+        preserving forests, supporting conservation, and raising awareness. Together, we can help pandas thrive again!
+        Will you join the fight?</p>
+      <div class="relative">
+        <img src="dialog-map.png" role="presentation">
+        <img src="dialog-koala.png" role="presentation" class="dialog-saved-animal">
+      </div>
+      <app-dialog-actions>
+        <button class="primary" (click)="dialog = false">Take up challenge</button>
+      </app-dialog-actions>
+    </app-dialog>
+    }
+  </main>
+</div>
