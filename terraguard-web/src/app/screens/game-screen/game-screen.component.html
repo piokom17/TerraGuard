@@ -6,11 +6,11 @@
       <div class="stats flex-half gap-1">
         <div class="outlined flex-auto">
           <label>Points</label>
-          <output class="outlined">{{ points }}</output>
+          <output class="outlined">{{ game?.score }}</output>
         </div>
         <div class="outlined flex-auto">
           <label>Level</label>
-          <output class="outlined">{{ level }}</output>
+          <output class="outlined">{{ game?.level }}</output>
         </div>
       </div>
     </div>
@@ -40,18 +40,33 @@
   <main>
     <div id="scene" #scene></div>
     @if (dialog) {
-    <app-dialog title="Save the panda!">
-      <p>Oh no!<br>Pandas are nearing extinction as their habitats shrink. Join the challenge to protect them by
-        preserving forests, supporting conservation, and raising awareness. Together, we can help pandas thrive again!
-        Will you join the fight?</p>
-      <div class="relative">
-        <img src="dialog-map.png" role="presentation">
-        <img src="dialog-koala.png" role="presentation" class="dialog-saved-animal">
-      </div>
-      <app-dialog-actions>
-        <button class="primary" (click)="dialog = false">Take up challenge</button>
-      </app-dialog-actions>
-    </app-dialog>
+      <app-dialog [title]="dialog.title">
+        @if (dialog.text) {
+          <p>{{ dialog.text }}</p>
+        }
+        @if (dialog.choices) {
+          <div class="quiz-choices">
+            @for (choice of dialog.choices; track choice) {
+              <button (click)="selectedChoice = choice" [class.outlined]="selectedChoice == choice">
+                <h3>{{ choice.title }}</h3>{{ choice.text }}
+              </button>
+            }
+          </div>
+        }
+        @if (dialog.withMap) {
+          <div class="relative">
+            <img src="dialog-map.png" role="presentation">
+            <img src="dialog-koala.png" role="presentation" class="dialog-saved-animal">
+          </div>
+        }
+        @if (dialog?.actions) {
+          <app-dialog-actions>
+            @for (action of dialog?.actions; track action) {
+              <button class="primary" (click)="doAction(action)">{{ action.caption }}</button>
+            }
+          </app-dialog-actions>
+        }
+      </app-dialog>
     }
   </main>
 </div>

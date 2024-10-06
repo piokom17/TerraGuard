@@ -72,4 +72,22 @@ app-dialog {
 
 #scene {
   position: absolute;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  top: 0;
+  left: 0;
+}
+
+.quiz-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+}
+
+.quiz-choices > button {
+  padding: .5rem;
+  border: 1px solid white;
+  border-radius: .5rem;
+  background: transparent;
+  color: white;
 }

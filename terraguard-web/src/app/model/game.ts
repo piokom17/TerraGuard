@@ -1,9 +1,11 @@
 import { Animal } from './animal';
+import { Place } from './place';
 
 export interface GameState {
   animal: Animal;
   gameOver?: boolean;
-  place: string;
-  resources?: { [key: string]: number };
+  place: Place;
+  resources?: number[];
   score: number;
+  level: string;
 }

@@ -32,6 +32,12 @@ main > * {
   overflow: hidden;
 }
 
+.animal-cell.selected, .menu li.selected {
+  border: .5rem solid rgba(5, 255, 0, 0.8);
+  border-radius: 1rem;
+  margin: -.5rem;
+}
+
 .animal-cell img {
   max-width: 80%;
   height: auto;
