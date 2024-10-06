@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # lub wersja, której używasz
+          node-version: 'v20.18.0'  # lub wersja, której używasz
 
       - name: Install dependencies
         working-directory: ./terraguard-web
