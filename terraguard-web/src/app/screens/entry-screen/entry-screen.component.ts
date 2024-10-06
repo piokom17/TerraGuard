@@ -32,7 +32,7 @@ export class EntryScreenComponent {
       this.gameService.startNewGame({
         animal: this.selectedAnimal,
         place: this.selectedPlace,
-        score: 0,
+        score: 150,
         level: '01',
         resources:
           this.selectedPlace.initialResources ||

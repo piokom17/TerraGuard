@@ -91,3 +91,7 @@ app-dialog {
   background: transparent;
   color: white;
 }
+
+.quiz-choices > button.selected {
+  background: #CCC;
+}

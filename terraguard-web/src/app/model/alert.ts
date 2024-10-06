@@ -15,6 +15,7 @@ export interface AlertAction {
   navigateTo?: number[];
   switchMapTo?: '2d' | '3d';
   points?: number;
+  cost?: number;
   alert?: string;
   changes?: number[];
 }

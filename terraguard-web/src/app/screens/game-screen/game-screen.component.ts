@@ -95,9 +95,13 @@ export class GameScreenComponent implements OnInit, AfterViewInit {
     if (action.changes) {
       this.game!.resources = action.changes;
     }
+    if (action.cost) {
+      this.removePoints(action.cost);
+    }
   }
 
   navigateTo(point: number[]) {
+    console.log('navigate', point);
     setTimeout(() => {
       this.map?.setView(
         new View({
@@ -111,6 +115,15 @@ export class GameScreenComponent implements OnInit, AfterViewInit {
   addPoints(pts: number) {
     if (this.game?.score != null) {
       this.game.score += pts;
+    }
+  }
+
+  removePoints(pts: number) {
+    if (this.game?.score != null) {
+      this.game.score -= pts;
+      if (this.game.score < 0) {
+        this.game.score = 0;
+      }
     }
   }
 

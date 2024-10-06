@@ -13,7 +13,7 @@ export const alerts: Alert[] = [
         switchMapTo: '2d',
         navigateTo: [35.009392, 135.667007],
         alert: 'bamboo_quiz',
-        points: 2,
+        points: 0,
       },
     ],
   },
@@ -25,18 +25,22 @@ export const alerts: Alert[] = [
       {
         text: 'Block off sections of the forest where the blight has spread to prevent it from reaching other bamboo. cost - 50 points',
         title: 'Quarantine Infected Areas',
+        cost: 50,
       },
       {
         title: 'Deploy Scientists',
         text: 'Send a team of researchers to investigate the cause of the blight and develop a cure. COST - 100 points',
+        cost: 50,
       },
       {
         title: 'Ignore the Blight',
         text: 'Choose not to take any action. The disease will continue to spread, and the pandas may face starvation. COST - 0 points',
+        cost: 0,
       },
       {
         title: 'Replant Healthy Bamboo',
         text: 'Begin replanting new, blight-resistant bamboo in areas where the disease has been cleared. COST - 75 points',
+        cost: 75,
       },
     ],
   },

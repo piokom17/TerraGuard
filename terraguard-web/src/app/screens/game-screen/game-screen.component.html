@@ -47,7 +47,7 @@
         @if (dialog.choices) {
           <div class="quiz-choices">
             @for (choice of dialog.choices; track choice) {
-              <button (click)="selectedChoice = choice" [class.outlined]="selectedChoice == choice">
+              <button (click)="selectedChoice = choice" [class.selected]="selectedChoice == choice">
                 <h3>{{ choice.title }}</h3>{{ choice.text }}
               </button>
             }
@@ -64,6 +64,11 @@
             @for (action of dialog?.actions; track action) {
               <button class="primary" (click)="doAction(action)">{{ action.caption }}</button>
             }
+          </app-dialog-actions>
+        }
+        @if (dialog.choices) {
+          <app-dialog-actions>
+            <button class="primary" (click)="answerQuiz()">Do it!</button>
           </app-dialog-actions>
         }
       </app-dialog>
